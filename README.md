@@ -1,4 +1,6 @@
-# macaca-test-sample-java
+# sample-java
+
+[![build status][travis-image]][travis-url]
 
 Macaca test sample for Java
 
@@ -6,20 +8,8 @@ Macaca test sample for Java
 
 [gitter-url]: https://gitter.im/alibaba/macaca
 
-## CI Sample
-
-| Platform   | Status                                          |  Repo                                                                                                         |
-| ---------- | ----------------------------------------------- | ------------------------------------------------------------------------------------------------------------- |
-| PC         | [![build status][travis-image-0]][travis-url-0] | [macaca-test-sample-java](https://github.com/macaca-sample/macaca-test-sample-java)                           |
-| iOS        | [![build status][travis-image-1]][travis-url-1] | [macaca-ci-sample-java-ios-travis](https://github.com/macaca-sample/macaca-ci-sample-java-ios-travis)         |
-| Android    | [![build status][travis-image-2]][travis-url-2] | [macaca-ci-sample-java-android-travis](https://github.com/macaca-sample/macaca-ci-sample-java-android-travis) |
-
-[travis-image-0]: https://img.shields.io/travis/macaca-sample/macaca-test-sample-java.svg?style=flat-square
-[travis-url-0]: https://travis-ci.org/macaca-sample/macaca-test-sample-java
-[travis-image-1]: https://img.shields.io/travis/macaca-sample/macaca-ci-sample-java-ios-travis.svg?style=flat-square
-[travis-url-1]: https://travis-ci.org/macaca-sample/macaca-ci-sample-java-ios-travis
-[travis-image-2]: https://img.shields.io/travis/macaca-sample/macaca-ci-sample-java-android-travis.svg?style=flat-square
-[travis-url-2]: https://travis-ci.org/macaca-sample/macaca-ci-sample-java-android-travis
+[travis-image]: https://img.shields.io/travis/macaca-sample/sample-java.svg?style=flat-square
+[travis-url]: https://travis-ci.org/macaca-sample/sample-java
 
 ## Test
 
@@ -47,7 +37,7 @@ when source code changes, run CI Samples
 
 1. change current version : package.json
 2. npm publish
-3. run CI sample 
+3. run CI sample
 
 
 ## Problems
