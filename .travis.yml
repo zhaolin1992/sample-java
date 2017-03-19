@@ -97,6 +97,7 @@ matrix:
           - TEST_SUITE=pc-browser
         language: java
         sudo: false
+        jdk: oraclejdk8
         addons:
           apt:
             packages:
