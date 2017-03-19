@@ -8,8 +8,7 @@ test-pc-browser: server
 	mvn -s settings.xml clean install
 	mvn test -Dtest=DesktopSampleTest
 travis-pc-browser: install server
-	npm i macaca-cli -g --unsafe-perm=true
-	npm i macaca-electron -g --unsafe-perm=true
+	npm i macaca-electron --save-dev
 	mvn -s settings.xml clean install
 	mvn test -Dtest=DesktopSampleTest
 travis-android: install server
@@ -31,5 +30,5 @@ travis-android-browser: install server
 	mvn test -Dtest=H5SampleTest
 server:
 	${npm_bin}/macaca server --verbose &
-	sleep 5
+	sleep 5s
 .PHONY: test
