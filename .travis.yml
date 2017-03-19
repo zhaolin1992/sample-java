@@ -104,9 +104,9 @@ matrix:
             packages:
               - xvfb
         before_install:
+          - . $HOME/.nvm/nvm.sh
+          - nvm install 7
           - export DISPLAY=':99.0'
           - Xvfb :99 -screen 0 1366x768x24 > /dev/null 2>&1 &
-          - nvm install 7
-          - npm install macaca-cli macaca-electron -g
         script:
           - make travis-pc-browser
