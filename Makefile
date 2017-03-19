@@ -5,30 +5,29 @@ all: test
 install:
 	npm install
 test-pc-browser: server
-	mvn -s settings.xml clean install
+	mvn -s settings.xml clean install -Dmaven.test.skip=true
 	mvn test -Dtest=DesktopSampleTest
 travis-pc-browser: install server
-	npm i macaca-electron --save-dev
-	mvn -s settings.xml clean install
+	npm i macaca-electron -g
+	mvn -s settings.xml clean install -Dmaven.test.skip=true
 	mvn test -Dtest=DesktopSampleTest
 travis-android: install server
-	npm install macaca-android -g --unsafe-perm=true
+	npm install macaca-android --save-dev
 	${npm_bin}/macaca doctor
 	sleep 10s
 	mvn -s settings.xml clean install -Dmaven.test.skip=true
 	mvn test -Dtest=AndroidSampleTest
 travis-ios: install server
-	npm install macaca-ios -g --unsafe-perm=true
+	npm install macaca-ios --save-dev
 	${npm_bin}/macaca doctor
-	sleep 10s
 	mvn -s settings.xml clean install -Dmaven.test.skip=true
 	mvn test -Dtest=IosSampleTest
 travis-android-browser: install server
-	npm install macaca-android -g --unsafe-perm=true
+	npm install macaca-android --save-dev
 	${npm_bin}/macaca doctor
 	mvn -s settings.xml clean install -Dmaven.test.skip=true
 	mvn test -Dtest=H5SampleTest
 server:
 	${npm_bin}/macaca server --verbose &
-	sleep 5s
+	sleep 10s
 .PHONY: test
