@@ -4,6 +4,7 @@ os:
 env:
   - TEST_SUITE=ios
   - TEST_SUITE=android
+  - TEST_SUITE=android-browser
   - TEST_SUITE=pc-browser
 matrix:
     fast_finish: true
@@ -13,11 +14,15 @@ matrix:
       - os: osx
         env: TEST_SUITE=android
       - os: osx
+        env: TEST_SUITE=android-browser
+      - os: osx
         env: TEST_SUITE=pc-browser
       - os: linux
         env: TEST_SUITE=ios
       - os: linux
         env: TEST_SUITE=android
+      - os: linux
+        env: TEST_SUITE=android-browser
       - os: linux
         env: TEST_SUITE=pc-browser
     include:
@@ -60,6 +65,33 @@ matrix:
           - adb shell input keyevent 82 &
         script:
           - make travis-android
+      - os: linux
+        env: TEST_SUITE=android-browser
+        jdk: openjdk7
+        language: android
+        android:
+          components:
+            - build-tools-23.0.2
+            - android-23
+            - extra-android-m2repository
+            - extra-android-support
+        sudo: false
+        before_install:
+          - export CHROME_BIN=chromium-browser
+          - export JAVA_HOME=/usr/lib/jvm/java-7-openjdk-amd64
+          - export ANDROID_HOME=/usr/local/android-sdk
+          - echo yes | android update sdk --all --filter build-tools-23.0.2 --no-ui --force
+          - export DISPLAY=:99.0
+          - sh -e /etc/init.d/xvfb start
+        before_script:
+          - . $HOME/.nvm/nvm.sh
+          - nvm install 7
+          - echo no | android create avd --force -n test -t android-19 --abi armeabi-v7a
+          - emulator -avd test -no-audio -no-window &
+          - android-wait-for-emulator
+          - adb shell input keyevent 82 &
+        script:
+          - make travis-android-browser
       - os: linux
         env:
           - TEST_SUITE=pc-browser

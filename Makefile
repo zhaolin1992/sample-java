@@ -26,7 +26,7 @@ travis-ios: install
 	sleep 10s
 	mvn -s settings.xml clean install -Dmaven.test.skip=true
 	mvn test -Dtest=IosSampleTest
-travis-h5: server
+travis-android-browser: server
 	mvn -s settings.xml clean install -Dmaven.test.skip=true
 	mvn test -Dtest=H5SampleTest
 server:
