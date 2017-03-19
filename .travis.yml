@@ -97,8 +97,6 @@ matrix:
           - TEST_SUITE=pc-browser
         language: java
         sudo: false
-        jdk:
-          - openjdk7
         addons:
           apt:
             packages:
